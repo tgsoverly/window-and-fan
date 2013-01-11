@@ -5,15 +5,29 @@ class WeatherController < ApplicationController
   include WeatherHelper
 
   def hourly
-    html = self.class.get("http://www.findlocalweather.com/hourly/#{params[:state]}/#{params[:city]}.html")
-    case html.code
-      when 200
-        json_weather_map = self.parseWeatherHTML html
-        render json: json_weather_map.to_json
-      when 404
-        render json: {'error' => 'City and state combination not found.'}
-      when 500...600
-        render json: {'error' => 'Error getting weather data, try again later.'}
+    response_object = {}
+    begin
+      html = self.class.get("http://www.findlocalweather.com/hourly/#{params[:state]}/#{params[:city]}.html")
+      status = html.code
+      case html.code
+        when 200
+          response_object = self.parseWeatherHTML html
+        when 403..404
+          response_object = {'error' => 'City and state combination not found, or missing.'}
+        else
+          status = 500
+          response_object = {'error' => 'Error getting weather data, try again later.'}
+      end
+    rescue Exception => e
+      response_object = {'error' => "Error getting weather data, try again later."}
+      puts e.backtrace
+      status = 500
+    end
+    
+    respond_to do |format|
+      format.html { render :json => response_object, :status => status }
+      format.json { render :json => response_object, :status => status}
+      format.xml  { render :xml => response_object, :status => status  }
     end
   end
 end

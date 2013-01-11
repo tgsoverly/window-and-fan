@@ -1,2 +1,10 @@
-<h1>WindowAndFan#index</h1>
-<p>Find me in app/views/window_and_fan/index.html.erb</p>
+<h1>Window and Fan</h1>
+<%= form_tag('/window_and_fan/recommend', :remote => true) do %>
+  City: <%= text_field_tag(:city) %>
+  State: <%= select_tag :state, options_for_select(us_states) %>
+  
+  High: <%= select_tag(:high, options_for_select((60..85).to_a)) %>
+  Low: <%= select_tag(:low, options_for_select((50..75).to_a)) %>
+  
+  <%= submit_tag("When I should open windows and turn on fans") %>
+<% end %>

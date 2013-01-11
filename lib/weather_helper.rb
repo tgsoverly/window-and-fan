@@ -12,6 +12,9 @@ module WeatherHelper
     # Missing quotes on the attributes, so I am just getting the table I need.
     table_start_string = '<table border="0"  cellpadding=2 cellspacing=1 align="center" width="98%">'
     table_start = body.index table_start_string
+    if table_start.nil?
+      return {'error' => 'City and state combination not found, or missing.'}
+    end
     table_end = body.index '</table>', table_start
     
     table = body[(table_start+table_start_string.length)..(table_end-1)]
@@ -32,6 +35,7 @@ module WeatherHelper
     results = []
     row_map = {}
     index = 0
+    # Go through and pull out the values that are meaningful.
     doc.root().each_element("/root/tr/td/span") do |row|
       case index
         when 0
