@@ -8,7 +8,7 @@ Well, "Window and Fan" is a tool that will help you know "when" you should turn 
 Application
 ------
 
-To use the application, type in your city and state and choose your comfort zone.  The app will tell you when to "open your windows and turn on your fans"
+To use the application, type in your city and state and choose your comfort zone.  The app will tell you when to "open your windows and turn on your fans".  Simply it will tell you when the temperature will be in your confort zone.
 
 #### Deployment
 
@@ -28,7 +28,7 @@ Do a GET request at
 Where:
 
     root - the heroku or development root: i.e. "0.0.0.0:3000".  
-    format - "json", "xml", or "html"
+    format - "json" or "xml"
 
 Include the request params:
 
@@ -42,6 +42,6 @@ Examples:
 
 Cache:
 
-  There is no caching because it is hourly data, and it seems like something I could do if performance was a problem.
+  There caching to our database for 1 hour to improve response.
 
 
