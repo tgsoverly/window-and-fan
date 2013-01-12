@@ -1,0 +1,17 @@
+<h1>Window and Fan</h1>
+<img src="/assets/windowfan.png" width="300px;" height="250px;"><br/>
+
+<div class="outer">
+<div class="box left">
+  <p>Location</p>
+  City {{view Ember.TextField valueBinding="WindowAndFan.recommendationController.selectedCity"}}
+  State: {{view Ember.Select contentBinding="WindowAndFan.recommendationController.states" valueBinding="WindowAndFan.recommendationController.selectedState"}}
+</div>
+<div class="box right">
+<p>Comfort Zone</p>
+  Low: {{view Ember.Select contentBinding="WindowAndFan.recommendationController.low_temperatures" valueBinding="WindowAndFan.recommendationController.selectedLow"}}
+  High: {{view Ember.Select contentBinding="WindowAndFan.recommendationController.high_temperatures" valueBinding="WindowAndFan.recommendationController.selectedHigh"}}
+</div>
+<div style="clear:both;"></div>
+  {{view WindowAndFan.ResultsView}}
+</div>

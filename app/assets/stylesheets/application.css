@@ -26,3 +26,33 @@
   border-radius: 6px;
   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
 }
+
+.box{
+  width: 300px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border:2px solid gray;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+}
+
+.right{
+  float: right;
+}
+
+.left{
+  float: left;
+}
+
+.results{
+  margin-top: 10px;
+  width: 650px;
+}
+
+.outer{
+  width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,7 +1,0 @@
-== Window and Fan
-
-Have you ever been inside and it is cool outside and you open the windows and put a fan in the window to ventilate your house/apartment?
-
-Well, "Window and Fan" is a tool that will help you know "when" you should turn on and off your fan for maximum benifit!
-
-

@@ -6,7 +6,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: windowandfan_dev
+  database: general_development
   username: development
   password: reallydoesntmatter
   pool: 5

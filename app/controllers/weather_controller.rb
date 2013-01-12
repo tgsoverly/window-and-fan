@@ -7,7 +7,10 @@ class WeatherController < ApplicationController
   def hourly
     response_object = {}
     begin
-      html = self.class.get("http://www.findlocalweather.com/hourly/#{params[:state]}/#{params[:city]}.html")
+      state = URI::encode(""+params[:state].to_s)
+      city = URI::encode(""+params[:city].to_s)
+
+      html = self.class.get("http://www.findlocalweather.com/hourly/#{state}/#{city}.html")
       status = html.code
       case html.code
         when 200

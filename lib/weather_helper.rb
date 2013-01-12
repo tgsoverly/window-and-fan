@@ -39,7 +39,9 @@ module WeatherHelper
     doc.root().each_element("/root/tr/td/span") do |row|
       case index
         when 0
-          row_map['time']=row.text
+          #Convert to 24 hour time
+          day = Time.now.day
+          row_map['time']=row.text.gsub(/\D\D\D..(#{day}|#{day+1})/, '')
         when 3
           row_map['temperature']=row.text.gsub(/&deg;F/, '')
         when 6

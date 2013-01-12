@@ -1,16 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <title>WindowAndFan</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-  <div class="content">
-    <%= image_tag("windowfan.png", :size => "350x300", :alt => "Window and Fan")%>
-    <%= yield %>
-  </div>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window and Fan</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+     <%= yield %>
+  </body>
 </html>
