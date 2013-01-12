@@ -27,7 +27,8 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: windowandfan_prod
-  username: production
-  password: reallydoesntmatter
+  database: db07r70tu37356
+  username: rjknuxiognknck
+  password: RAv9x2GHETlZhLhFPrwJZkWcvn
   pool: 5
+  host:ec2-54-243-230-139.compute-1.amazonaws.com
