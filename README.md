@@ -40,4 +40,8 @@ Examples:
     http://young-tor-7683.herokuapp.com/weather/hourly.json?city=columbus&state=oh
     http://young-tor-7683.herokuapp.com/weather/hourly.xml?city=chicago&state=il
 
+Cache:
+
+  There is no caching because it is hourly data, and it seems like something I could do if performance was a problem.
+
 
