@@ -10,6 +10,10 @@ Application
 
 To use the application, type in your city and state and choose your comfort zone.  The app will tell you when to "open your windows and turn on your fans"
 
+#### Deployment
+
+This is deployed to [heroku](http://young-tor-7683.herokuapp.com/).
+
 Weather Scraper
 ------
 
@@ -31,8 +35,9 @@ Include the request params:
     city - the city of interest, i.e. "columbus"
     state - two letter code for the state, i.e. "oh"
 
-Deployment
----------
+Examples:
 
-This is deployed to [heroku](http://young-tor-7683.herokuapp.com/).
+    http://young-tor-7683.herokuapp.com/weather/hourly.json?city=columbus&state=oh
+    http://young-tor-7683.herokuapp.com/weather/hourly.xml?city=chicago&state=il
+
 
