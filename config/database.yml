@@ -7,6 +7,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: general_development
+  host: localhost
   username: development
   password: reallydoesntmatter
   pool: 5
@@ -19,6 +20,7 @@ test:
   encoding: unicode
   database: general_testing
   username: development
+  host: localhost
   password: reallydoesntmatter
   pool: 5
 
