@@ -28,6 +28,11 @@ Where:
 
 Include the request params:
 
-  city - the city of interest, i.e. "columbus"
-  state - two letter code for the state, i.e. "oh"
+    city - the city of interest, i.e. "columbus"
+    state - two letter code for the state, i.e. "oh"
+
+Deployment
+---------
+
+This is deployed to [heroku](http://young-tor-7683.herokuapp.com/).
 
