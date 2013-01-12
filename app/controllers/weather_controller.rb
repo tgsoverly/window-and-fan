@@ -17,9 +17,9 @@ class WeatherController < ApplicationController
           weather = weather[0]
         else
           #if not the save and return a new object
+          weather = nil
           state = URI::encode(""+params[:state].to_s)
           city = URI::encode(""+params[:city].to_s)
-
           html = self.class.get("http://www.findlocalweather.com/hourly/#{state}/#{city}.html")
           status = html.code
           case html.code
