@@ -23,8 +23,8 @@ Do a GET request at
 
 Where:
 
-  root - the heroku or development root: i.e. "0.0.0.0:3000".  
-  format - "json", "xml", or "html"
+    root - the heroku or development root: i.e. "0.0.0.0:3000".  
+    format - "json", "xml", or "html"
 
 Include the request params:
 
