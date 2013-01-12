@@ -7,6 +7,7 @@ class WeatherController < ApplicationController
   def hourly
     response_object = nil
     weather = nil
+    status = nil
     begin
       #check to see if we have a valid model saved
       if params[:state] && params[:city]
@@ -34,6 +35,9 @@ class WeatherController < ApplicationController
               response_object = {'error' => 'Error getting weather data, try again later.'}
           end
         end
+      else
+        status = 404
+        response_object = {'error' => 'City and state combination not found, or missing.'}
       end
     rescue Exception => e
       response_object = {'error' => "Error getting weather data, try again later."}
@@ -44,7 +48,6 @@ class WeatherController < ApplicationController
       response_object = ActiveSupport::JSON.decode(weather.weather_data)
     end
     respond_to do |format|
-      format.html { render :json => response_object, :status => status }
       format.json { render :json => response_object, :status => status}
       format.xml  { render :xml => response_object, :status => status  }
     end
