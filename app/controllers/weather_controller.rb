@@ -44,7 +44,8 @@ class WeatherController < ApplicationController
       end
     rescue Exception => e
       logger.info "Exception"
-      logger.error $!.backtrace
+      logger.error e
+      logger.error e.backtrace
       response_object = {'error' => "Error getting weather data, try again later."}
       status = 500
     end
