@@ -12,9 +12,9 @@ class WeatherController < ApplicationController
       #check to see if we have a valid model saved
       if params[:state] && params[:city]
         weather = Weather.where("city = ? AND state = ?", params[:city], params[:state])
+        logger.info "found"+weather.to_s
         if weather.any? && weather[0].valid?
           #If found and valid set it to be returned.
-          logger.info "found"
           weather = weather[0]
         else
           #if not the save and return a new object
