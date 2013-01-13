@@ -14,7 +14,7 @@ class WeatherController < ApplicationController
         weather = Weather.where("city = ? AND state = ?", params[:city], params[:state])
         if weather.any? && weather[0].valid?
           #If found and valid set it to be returned.
-          puts "found"
+          logger.info "found"
           weather = weather[0]
         else
           #if not the save and return a new object
@@ -25,25 +25,25 @@ class WeatherController < ApplicationController
           case html.code
             when 200
               #Create and cache
-              puts "create and save"
+              logger.info "create and save"
               weather_data = self.parseWeatherHTML html
               weather = Weather.new(:city=>params[:city], :state=>params[:state], :time_cached=>Time.now.to_f, :weather_data=>weather_data.to_json)
               weather.save()
             when 403..404
               response_object = {'error' => 'City and state combination not found, or missing.'}
             else
-              puts "500"
+              logger.info "500"
               status = 500
               response_object = {'error' => 'Error getting weather data, try again later.'}
           end
         end
       else
-        puts "404"
+        logger.info "404"
         status = 404
         response_object = {'error' => 'City and state combination not found, or missing.'}
       end
     rescue Exception => e
-      puts "Exception"
+      logger.info "Exception"
       response_object = {'error' => "Error getting weather data, try again later."}
       status = 500
     end
