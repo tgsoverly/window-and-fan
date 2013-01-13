@@ -33,7 +33,6 @@ class WeatherController < ApplicationController
               response_object = {'error' => 'City and state combination not found, or missing.'}
             else
               logger.info "500"
-              logger.error $!.backtrace
               status = 500
               response_object = {'error' => 'Error getting weather data, try again later.'}
           end
@@ -45,6 +44,7 @@ class WeatherController < ApplicationController
       end
     rescue Exception => e
       logger.info "Exception"
+      logger.error $!.backtrace
       response_object = {'error' => "Error getting weather data, try again later."}
       status = 500
     end
